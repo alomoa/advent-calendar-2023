@@ -1,4 +1,4 @@
-import { solve } from "./days/day1.js";
+import { collaborateAndSumValues } from "./utils/documentProcessor.js";
 import { promises } from "fs";
 import 'fs'
 
@@ -7,11 +7,11 @@ async function readFile(path){
     return result
 }
 
-async function day1(){
-    const file = await readFile("./src/days/day1.txt");
-    const result = solve(file);
+async function run(){
+    const file = await readFile("./src/days/document.txt");
+    const result = collaborateAndSumValues(file);
 
     console.log(result)
 }
 
-await day1()
+await run()

@@ -3,7 +3,7 @@
 //get the second number of each line
 //concatenate them
 //add all the things
-export function solve(input){
+export function collaborateAndSumValues(input){
     const split = splitIntoLines(input)
 
     const numbers = [];

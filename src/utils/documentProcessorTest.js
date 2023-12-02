@@ -1,4 +1,4 @@
-import { concatDigits, getFirstDigitOfLine, getLastDigitofLine, splitIntoLines } from "./day1.js"
+import { concatDigits, getFirstDigitOfLine, getLastDigitofLine, splitIntoLines } from "./convertLinesTo.js"
 
 function splitsTextIntoLines(){
     const string = ` hello
