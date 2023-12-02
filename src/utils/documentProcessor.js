@@ -3,6 +3,23 @@
 //get the second number of each line
 //concatenate them
 //add all the things
+
+const numberString = {
+    "one" : "1",
+    "two": "2",
+    "three": "3",
+    "four": "4",
+    "five": "5",
+    "six": "6",
+    "seven": "7",
+    "eight": "8",
+    "nine": "9"
+}
+const writtenNumbersPattern = Object.keys(numberString).join("|");
+const digitPattern = "\\d";
+
+const numberRegex = new RegExp(digitPattern + "|" + writtenNumbersPattern, "g");
+
 export function collaborateAndSumValues(input){
     const split = splitIntoLines(input)
 
@@ -26,19 +43,21 @@ export function splitIntoLines(input){
 }
 
 export function getFirstDigitOfLine(input){
-    const firstDigitRegex = /\d/;
-    const result = input.match(firstDigitRegex);
-    return result[0];
+    const rejexResult = input.match(numberRegex);
+    const firstResult = rejexResult[0];
+    if(numberString[firstResult]){
+        return numberString[firstResult]
+    }
+    return firstResult;
 }
 
 export function getLastDigitofLine(input){
-    const firstDigitRegex = /\d/;
-    const split = input.split("");
-    const reversed = split.reverse().join();
-
-    const result = reversed.match(firstDigitRegex)
-
-    return result[0]
+    const rejexResult = input.match(numberRegex)
+    const lastResult = rejexResult[rejexResult.length -1];
+    if(numberString[lastResult]){
+        return numberString[lastResult]
+    }
+    return lastResult;
 }
 
 export function concatDigits(a, b){
